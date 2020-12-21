@@ -7,15 +7,19 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
+
+import StoreProvider from './src/redux/store/store';
 // Navigation
 import Navigation from './src/navigation/Navigation';
 const App = () => {
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="default" />
-      <SafeAreaView  style={styles.main} >
-        <Navigation />
-      </SafeAreaView>
+      <StoreProvider>
+        <StatusBar barStyle="default" />
+        <SafeAreaView style={styles.main}>
+          <Navigation />
+        </SafeAreaView>
+      </StoreProvider>
     </View>
   );
 };

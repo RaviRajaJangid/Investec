@@ -1,9 +1,8 @@
 import React from 'react';
-
 // Screens
-import HomeScreen from '../screens/HomeScreen';
-import FirstScreen from '../screens/FirstScreen';
-import SecondScreen from '../screens/SecondScreen';
+import HomeScreen from '../screens/home/HomeScreen';
+import FirstScreen from '../screens/first/FirstScreen';
+import SecondScreen from '../screens/second/SecondScreen';
 // Navigation
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
