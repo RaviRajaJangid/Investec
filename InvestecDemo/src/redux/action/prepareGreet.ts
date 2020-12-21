@@ -1,7 +1,6 @@
 import {PREPARE_GREET} from '../actionType';
 
-const prepareGreet = (name: string) => {
-  console.log('prepareGreet', name);
+const prepareGreet = (name: string = '') => {
   return {type: PREPARE_GREET, payload: name};
 };
 

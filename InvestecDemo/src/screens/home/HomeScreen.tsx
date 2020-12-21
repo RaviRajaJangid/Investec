@@ -8,20 +8,14 @@ import {
   TouchableOpacity,
 } from 'react-native';
 // redux stuff
-import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-// action
-import prepareGreet from '../../redux/action/prepareGreet';
 // resource
 import {images, strings, colors} from '../../res';
 // style
 import styles from './home.style';
 const HomeScreen = (props) => {
-  const {navigation, greeting, prepareGreet} = props;
-console.log('GEET ', greeting);
-  useEffect(() => {
-    prepareGreet('Ravi');
-  }, []);
+  const {navigation, greeting} = props;
+
   return (
     <View style={styles.main}>
       <View style={styles.container}>
@@ -36,7 +30,7 @@ console.log('GEET ', greeting);
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.button2}>
-          <Text style={styles.title1}>{}</Text>
+          <Text style={styles.title1}>{strings.pressMe}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.button3}>
@@ -52,20 +46,11 @@ console.log('GEET ', greeting);
 };
 
 const mapStateToProps = (state) => {
-  console.log('mapStateToProps', state);
   return {
     greeting: state.greeting,
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(
-    {
-      prepareGreet: prepareGreet,
-    },
-    dispatch,
-  );
-};
+// const mapDispatchToProps = {prepareGreet};
 
-export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen);
-//export default HomeScreen;
+export default connect(mapStateToProps, null)(HomeScreen);

@@ -1,28 +1,47 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
-  StatusBar,
+  Image,
+  TouchableOpacity,
 } from 'react-native';
-
-const FirstScreen = () => {
+// redux stuff
+import {connect} from 'react-redux';
+// action
+import prepareGreet from '../../redux/action/prepareGreet';
+// resource
+import {images, strings, colors} from '../../res';
+// style
+import styles from './first.style';
+const FirstScreen = (props) => {
+  const {navigation, greeting, prepareGreet} = props;
+  useEffect(() => {
+    prepareGreet();
+  }, []);
   return (
-    <View style={styles.container}>
-      <Text> {'You are on FirstScreen'}</Text>
+    <View style={styles.main}>
+      <View style={styles.container}>
+        {greeting?.message && (
+          <Text style={styles.welcomeTitle}>{greeting.message}</Text>
+        )}
+      </View>
+      <View style={styles.container}>
+        <Text style={styles.yellowText}>{strings.fourVariations}</Text>
+        <TouchableOpacity style={styles.button1}>
+          <Text style={styles.title1}>{strings.pressMe}</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
 
-export default FirstScreen;
+const mapStateToProps = (state) => {
+  return {
+    greeting: state.greeting,
+  };
+};
+const mapDispatchToProps = {prepareGreet};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: '100%',
-    justifyContent: 'center',
-    backgroundColor: 'green',
-  },
-});
+export default connect(mapStateToProps, mapDispatchToProps)(FirstScreen);
