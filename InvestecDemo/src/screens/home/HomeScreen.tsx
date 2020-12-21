@@ -10,10 +10,11 @@ import {
 // redux stuff
 import {connect} from 'react-redux';
 // resource
-import {images, strings, colors} from '../../res';
+import {images, strings, colors, route} from '../../res';
 // style
 import styles from './home.style';
-const HomeScreen = (props) => {
+// is it
+const HomeScreen = (props: {navigation: any; greeting: {message: String}}) => {
   const {navigation, greeting} = props;
 
   return (
@@ -23,29 +24,40 @@ const HomeScreen = (props) => {
           <Text style={styles.welcomeTitle}>{greeting.message}</Text>
         )}
       </View>
-      <View style={styles.container}>
-        <Text style={styles.yellowText}>{strings.fourVariations}</Text>
-        <TouchableOpacity style={styles.button1}>
-          <Text style={styles.title1}>{strings.pressMe}</Text>
-        </TouchableOpacity>
+      <View
+        style={styles.bottomContainer}>
+        <View style={styles.container}>
+          <Text style={styles.yellowText}>{strings.fourVariations}</Text>
+          <TouchableOpacity
+            style={styles.button1}
+            onPress={() => {
+              navigation.navigate(route.firstScreen);
+            }}>
+            <Text style={styles.title1}>{strings.pressMe}</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button2}>
-          <Text style={styles.title1}>{strings.pressMe}</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.button2}>
+            <Text style={styles.title1}>{strings.pressMe}</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button3}>
-          <Text style={styles.title2}>{strings.pressMe}</Text>
-        </TouchableOpacity>
-        <View style={styles.button4}>
-          <Image source={images.diamond} height={20} width={20} />
-          <Text style={styles.title1}>{strings.slideMe}</Text>
+          <TouchableOpacity style={styles.button3}>
+            <Text style={styles.title2}>{strings.pressMe}</Text>
+          </TouchableOpacity>
+          <View style={styles.slideButtonContainer}>
+            <View style={styles.slideButtonTitleContainer}>
+              <Text style={styles.title1}>{strings.slideMe}</Text>
+            </View>
+            <View style={styles.slideButtonThumb}>
+              <Image style={styles.thumbImage} source={images.diamond} />
+            </View>
+          </View>
         </View>
       </View>
     </View>
   );
 };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: {greeting: any}) => {
   return {
     greeting: state.greeting,
   };

@@ -1,4 +1,4 @@
-import {StyleSheet, ViewStyle, TextStyle} from 'react-native';
+import {StyleSheet, ViewStyle, TextStyle,ImageStyle, View} from 'react-native';
 import {colors} from '../../res';
 import common from '../../commonStyles/common.style';
 interface homeStyle {
@@ -11,7 +11,11 @@ interface homeStyle {
   button1: ViewStyle;
   button2: ViewStyle;
   button3: ViewStyle;
-  button4: ViewStyle;
+  slideButtonTitleContainer: ViewStyle;
+  slideButtonContainer: ViewStyle;
+  slideButtonThumb: ViewStyle;
+  thumbImage: ImageStyle;
+  bottomContainer: ViewStyle;
 }
 
 const styles = StyleSheet.create<homeStyle>({
@@ -23,7 +27,13 @@ const styles = StyleSheet.create<homeStyle>({
   },
   container: {
     width: '100%',
+    backgroundColor: colors.background,
+  },
+  bottomContainer: {
     flex: 1,
+    flexDirection: 'column-reverse',
+    width: '100%',
+    paddingBottom: 50,
   },
   yellowText: {
     color: 'yellow',
@@ -42,7 +52,8 @@ const styles = StyleSheet.create<homeStyle>({
     ...common.title,
     fontSize: 25,
     textAlign: 'right',
-    padding:20,
+    padding: 20,
+    marginTop: 50,
   },
   button1: {
     ...common.button,
@@ -56,12 +67,40 @@ const styles = StyleSheet.create<homeStyle>({
     backgroundColor: colors.blue,
     alignSelf: 'stretch',
   },
-  button4: {
+
+  slideButtonContainer: {
     ...common.button,
     flexDirection: 'row',
+    alignItems: 'center',
     borderColor: colors.blueBlack,
-    borderWidth: 2,
-    padding: 8,
+    borderWidth: 1,
+    padding: 0,
+  },
+
+  slideButtonTitleContainer: {
+    ...common.button,
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderColor: colors.blueBlack,
+    borderWidth: 1,
+    marginVertical: 0,
+    marginHorizontal: 0,
+  },
+  slideButtonThumb: {
+    position: 'absolute',
+    left: 0,
+    backgroundColor: colors.blue,
+    width: 53,
+    height: 53,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 10,
+    padding: 0,
+  },
+  thumbImage: {
+    height: 25,
+    width: 25,
   },
 });
 

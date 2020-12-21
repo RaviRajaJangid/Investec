@@ -1,4 +1,5 @@
 import images from './images';
 import strings from './strings';
 import colors from './colors';
-export {images, strings, colors};
+import route from '../navigation/route';
+export {images, strings, colors, route};
