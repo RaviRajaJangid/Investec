@@ -8,6 +8,7 @@ interface SlideStyle {
   slideButtonThumb: ViewStyle;
   thumbImage: ImageStyle;
   buttonTitle: TextStyle;
+  leftActionView: ViewStyle;
 }
 
 const styles = StyleSheet.create<SlideStyle>({
@@ -15,26 +16,26 @@ const styles = StyleSheet.create<SlideStyle>({
     ...common.button,
     flexDirection: 'row',
     alignItems: 'flex-start',
-    borderColor: 'white',//colors.blueBlack,
+    borderColor: colors.blueBlack,
     borderWidth: 2,
     padding: 0,
     height: 52,
     justifyContent: 'flex-start',
-    overflow: 'visible',
+    overflow: 'hidden',
   },
   slideButtonTitleContainer: {
     ...common.button,
     flexDirection: 'row',
     marginVertical: 0,
     marginHorizontal: 0,
-    // backgroundColor:'red',
-    height: 52,
+    backgroundColor: colors.background,
+    height: 48,
   },
   slideButtonThumb: {
     position: 'absolute',
     left: 0,
     backgroundColor: colors.blue,
-    width: 54,
+    width: 52,
     height: 54,
     alignItems: 'center',
     justifyContent: 'center',
@@ -49,7 +50,12 @@ const styles = StyleSheet.create<SlideStyle>({
     ...common.title,
     width: '100%',
     color: colors.blue,
-    height: 53,
+  },
+  leftActionView:{
+    flex: 0.865,
+    justifyContent: 'center',
+    width: '100%',
+    alignItems: 'center',
   },
 });
 

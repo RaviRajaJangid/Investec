@@ -18,6 +18,7 @@
 		74B98E86BCD9445119F0F501 /* libPods-Investec-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4FB2411ED0B72476A7F1E5 /* libPods-Investec-tvOS.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		9AEA06C826F76CE78EF1D6BC /* libPods-Investec-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44F2D095ACA030874EC4CD23 /* libPods-Investec-tvOSTests.a */; };
+		AA10EAE22590F95A001E3C1B /* RCTDeviceModule.m in Sources */ = {isa = PBXBuildFile; fileRef = AA10EAE12590F959001E3C1B /* RCTDeviceModule.m */; };
 		B12E1AE3CD224CE9C2674632 /* libPods-Investec-InvestecTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16ED8E48784F08AC1002087C /* libPods-Investec-InvestecTests.a */; };
 		BD5AAD72BB23ECCF37C8ABCD /* libPods-Investec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A1D8433E6CA0613594A3CB4 /* libPods-Investec.a */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,8 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Investec/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88724BC42A8E5EDBA0121932 /* Pods-Investec.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Investec.debug.xcconfig"; path = "Target Support Files/Pods-Investec/Pods-Investec.debug.xcconfig"; sourceTree = "<group>"; };
 		9DA8CE65CDC10205C0B03CE9 /* Pods-Investec.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Investec.release.xcconfig"; path = "Target Support Files/Pods-Investec/Pods-Investec.release.xcconfig"; sourceTree = "<group>"; };
+		AA10EAE02590F959001E3C1B /* RCTDeviceModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTDeviceModule.h; sourceTree = "<group>"; };
+		AA10EAE12590F959001E3C1B /* RCTDeviceModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTDeviceModule.m; sourceTree = "<group>"; };
 		B861E630DE2D337EE9FC44F8 /* Pods-Investec-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Investec-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Investec-tvOSTests/Pods-Investec-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		CE4FB2411ED0B72476A7F1E5 /* libPods-Investec-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Investec-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -128,6 +131,8 @@
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
+				AA10EAE02590F959001E3C1B /* RCTDeviceModule.h */,
+				AA10EAE12590F959001E3C1B /* RCTDeviceModule.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
@@ -194,7 +199,6 @@
 				34D411776B89E61654A2E182 /* Pods-Investec-tvOSTests.debug.xcconfig */,
 				B861E630DE2D337EE9FC44F8 /* Pods-Investec-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -568,6 +572,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA10EAE22590F95A001E3C1B /* RCTDeviceModule.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);

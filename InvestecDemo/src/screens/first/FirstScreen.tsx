@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TextInput, TouchableOpacity} from 'react-native';
+import {View, Text, TextInput, TouchableOpacity,Alert} from 'react-native';
 // redux stuff
 import {connect} from 'react-redux';
 // action
@@ -8,7 +8,10 @@ import prepareGreet from '../../redux/action/prepareGreet';
 import {strings, route} from '../../res';
 // style
 import styles from './first.style';
+// Native Module
+import {NativeModules} from 'react-native';
 const FirstScreen = (props) => {
+  const {DeviceModule} = NativeModules;
   const [name, setName] = useState('');
   const {navigation, greeting, prepareGreet} = props;
   console.log(greeting);
@@ -35,6 +38,9 @@ const FirstScreen = (props) => {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
+            if (DeviceModule.isEmulator()) {
+              Alert.alert(strings.appName, strings.appOnSimulator);
+            }
             prepareGreet(name);
           }}>
           <Text style={styles.title}>{strings.save}</Text>

@@ -1,16 +1,16 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, Alert} from 'react-native';
 // redux stuff
 import {connect} from 'react-redux';
 // resource
 import {strings, route} from '../../res';
 import SlideButton from '../../components/SlideButton';
+
 // style
 import styles from './home.style';
 // is it
 const HomeScreen = (props: {navigation: any; greeting: {message: String}}) => {
   const {navigation, greeting} = props;
-
   return (
     <View style={styles.main}>
       <View style={styles.container}>
@@ -44,10 +44,13 @@ const HomeScreen = (props: {navigation: any; greeting: {message: String}}) => {
             }}>
             <Text style={styles.title2}>{strings.pressMe}</Text>
           </TouchableOpacity>
-          <SlideButton 
-          onLeftSwipe={()=>{
-            console.log('onLeftSwipe');
-          }}
+          <SlideButton
+            onSlideOpen={() => {
+              Alert.alert(strings.appName, strings.slideOpned);
+            }}
+            onSlideClose={() => {
+              Alert.alert(strings.appName, strings.slideClosed);
+            }}
           />
         </View>
       </View>
