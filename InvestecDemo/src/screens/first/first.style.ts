@@ -4,14 +4,14 @@ import common from '../../commonStyles/common.style';
 interface firstStyle {
   main: ViewStyle;
   container: ViewStyle;
-  yellowText: TextStyle;
-  title1: TextStyle;
-  title2: TextStyle;
+  title: TextStyle;
+  welcomeTitleContainer: TextStyle;
   welcomeTitle: TextStyle;
-  button1: ViewStyle;
+  button: ViewStyle;
   button2: ViewStyle;
-  button3: ViewStyle;
-  button4: ViewStyle;
+  textFieldContainer: ViewStyle;
+  textField: TextStyle;
+  error: TextStyle;
 }
 
 const styles = StyleSheet.create<firstStyle>({
@@ -25,43 +25,47 @@ const styles = StyleSheet.create<firstStyle>({
     width: '100%',
     flex: 1,
   },
-  yellowText: {
-    color: 'yellow',
-    fontSize: 16,
-    paddingVertical: 20,
-    textAlign: 'center',
-  },
-  title1: {
+  title: {
     ...common.title,
-    color: colors.blue,
   },
-  title2: {
+  error: {
     ...common.title,
+    color: 'red',
+  },
+  welcomeTitleContainer:{
+    width: '100%',
+    height: '15%',
   },
   welcomeTitle: {
     ...common.title,
     fontSize: 25,
     textAlign: 'right',
-    padding:20,
+    padding: 20,
   },
-  button1: {
+
+  button: {
     ...common.button,
+    backgroundColor: colors.blue,
+    marginVertical: 30,
+    alignSelf: 'center',
+    width: '50%',
   },
   button2: {
     ...common.button,
-    backgroundColor: colors.blueBlack,
-  },
-  button3: {
-    ...common.button,
     backgroundColor: colors.blue,
-    alignSelf: 'stretch',
+    marginVertical: 30,
+    alignSelf: 'center',
+    width: '90%',
   },
-  button4: {
-    ...common.button,
-    flexDirection: 'row',
-    borderColor: colors.blueBlack,
-    borderWidth: 2,
-    padding: 8,
+  textField: {
+    backgroundColor: colors.white,
+    marginHorizontal: 20,
+    marginVertical: 10,
+    borderRadius: 10,
+    padding: 15,
+  },
+  textFieldContainer: {
+    marginTop: 40,
   },
 });
 

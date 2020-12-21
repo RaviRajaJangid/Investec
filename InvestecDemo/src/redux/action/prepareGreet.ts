@@ -1,7 +1,11 @@
-import {PREPARE_GREET} from '../actionType';
-
+import {PREPARE_GREET, PREPARE_GREET_ERROR} from '../actionType';
+import {strings} from '../../res';
 const prepareGreet = (name: string = '') => {
-  return {type: PREPARE_GREET, payload: name};
+  if (name === '') {
+    return {type: PREPARE_GREET_ERROR, payload: strings.emptyUserNameError};
+  }
+  const greet = strings.welcomeGreet.replace('{name}', name);
+  return {type: PREPARE_GREET, payload: greet};
 };
 
 export default prepareGreet;

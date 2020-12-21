@@ -1,8 +1,7 @@
-import {PREPARE_GREET} from '../actionType';
-import {strings} from '../../res';
-
+import {PREPARE_GREET, PREPARE_GREET_ERROR} from '../actionType';
 const initialState = {
   message: null,
+  error: null,
 };
 interface Action {
   payload: Object;
@@ -12,11 +11,16 @@ const prepareGreetReducer = (state = initialState, action: Action) => {
   console.log('prepareGreetReducer', action.payload);
   switch (action.type) {
     case PREPARE_GREET:
-      const greet = strings.welcomeGreet.replace('{name}', action.payload);
       return {
         ...initialState,
-        message: greet,
+        message: action.payload,
       };
+    case PREPARE_GREET_ERROR:
+      return {
+        ...initialState,
+        error: action.payload,
+      };
+
     default:
       return state;
   }

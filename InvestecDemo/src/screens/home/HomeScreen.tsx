@@ -1,16 +1,10 @@
-import React, {useEffect} from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import React from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
 // redux stuff
 import {connect} from 'react-redux';
 // resource
-import {images, strings, colors, route} from '../../res';
+import {strings, route} from '../../res';
+import SlideButton from '../../components/SlideButton';
 // style
 import styles from './home.style';
 // is it
@@ -24,8 +18,7 @@ const HomeScreen = (props: {navigation: any; greeting: {message: String}}) => {
           <Text style={styles.welcomeTitle}>{greeting.message}</Text>
         )}
       </View>
-      <View
-        style={styles.bottomContainer}>
+      <View style={styles.bottomContainer}>
         <View style={styles.container}>
           <Text style={styles.yellowText}>{strings.fourVariations}</Text>
           <TouchableOpacity
@@ -36,21 +29,26 @@ const HomeScreen = (props: {navigation: any; greeting: {message: String}}) => {
             <Text style={styles.title1}>{strings.pressMe}</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.button2}>
+          <TouchableOpacity
+            style={styles.button2}
+            onPress={() => {
+              navigation.navigate(route.firstScreen);
+            }}>
             <Text style={styles.title1}>{strings.pressMe}</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.button3}>
+          <TouchableOpacity
+            style={styles.button3}
+            onPress={() => {
+              navigation.navigate(route.firstScreen);
+            }}>
             <Text style={styles.title2}>{strings.pressMe}</Text>
           </TouchableOpacity>
-          <View style={styles.slideButtonContainer}>
-            <View style={styles.slideButtonTitleContainer}>
-              <Text style={styles.title1}>{strings.slideMe}</Text>
-            </View>
-            <View style={styles.slideButtonThumb}>
-              <Image style={styles.thumbImage} source={images.diamond} />
-            </View>
-          </View>
+          <SlideButton 
+          onLeftSwipe={()=>{
+            console.log('onLeftSwipe');
+          }}
+          />
         </View>
       </View>
     </View>
@@ -62,7 +60,5 @@ const mapStateToProps = (state: {greeting: any}) => {
     greeting: state.greeting,
   };
 };
-
-// const mapDispatchToProps = {prepareGreet};
 
 export default connect(mapStateToProps, null)(HomeScreen);

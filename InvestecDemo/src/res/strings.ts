@@ -2,7 +2,12 @@ const strings = {
   welcomeGreet: 'Hi, {name} \n Welcome to Investec!!',
   pressMe: 'Press me',
   slideMe: 'Slide me to continue',
+  slideToStop: 'Slide back to stop',
   fourVariations: '4 variations of buttons',
+  enterName: 'Enter your name',
+  save: 'Save',
+  navigateToSecond: 'Navigate To Second Screen',
+  emptyUserNameError: 'Please provide some valid input in user name',
 };
 
 export default strings;

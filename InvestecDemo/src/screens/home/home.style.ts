@@ -11,10 +11,6 @@ interface homeStyle {
   button1: ViewStyle;
   button2: ViewStyle;
   button3: ViewStyle;
-  slideButtonTitleContainer: ViewStyle;
-  slideButtonContainer: ViewStyle;
-  slideButtonThumb: ViewStyle;
-  thumbImage: ImageStyle;
   bottomContainer: ViewStyle;
 }
 
@@ -66,41 +62,6 @@ const styles = StyleSheet.create<homeStyle>({
     ...common.button,
     backgroundColor: colors.blue,
     alignSelf: 'stretch',
-  },
-
-  slideButtonContainer: {
-    ...common.button,
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderColor: colors.blueBlack,
-    borderWidth: 1,
-    padding: 0,
-  },
-
-  slideButtonTitleContainer: {
-    ...common.button,
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderColor: colors.blueBlack,
-    borderWidth: 1,
-    marginVertical: 0,
-    marginHorizontal: 0,
-  },
-  slideButtonThumb: {
-    position: 'absolute',
-    left: 0,
-    backgroundColor: colors.blue,
-    width: 53,
-    height: 53,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 10,
-    padding: 0,
-  },
-  thumbImage: {
-    height: 25,
-    width: 25,
   },
 });
 

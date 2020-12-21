@@ -1,26 +1,41 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {StyleSheet, View, Text} from 'react-native';
+// redux stuff
+import {connect} from 'react-redux';
 
-const SecondScreen = (props) => {
+const SecondScreen = (props: {
+  navigation: any;
+  greeting: {message: String};
+}) => {
+  const {greeting} = props;
   return (
     <View style={styles.container}>
-      <Text>SecondScreen </Text>
+      <View style={styles.container}>
+        {greeting?.message && (
+          <Text style={styles.welcomeTitle}>{greeting.message}</Text>
+        )}
+      </View>
+      <Text>{'SecondScreen'}</Text>
     </View>
   );
 };
-export default SecondScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
     justifyContent: 'center',
-    backgroundColor: 'green',
+    alignItems: 'center',
+  },
+  welcomeTitle: {
+    fontSize: 25,
+    textAlign: 'center',
+    padding: 20,
   },
 });
+
+const mapStateToProps = (state: {greeting: any}) => {
+  return {
+    greeting: state.greeting,
+  };
+};
+export default connect(mapStateToProps, null)(SecondScreen);
