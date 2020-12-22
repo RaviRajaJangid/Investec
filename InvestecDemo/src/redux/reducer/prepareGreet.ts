@@ -8,7 +8,6 @@ interface Action {
   type: string;
 }
 const prepareGreetReducer = (state = initialState, action: Action) => {
-  console.log('prepareGreetReducer', action.payload);
   switch (action.type) {
     case PREPARE_GREET:
       return {

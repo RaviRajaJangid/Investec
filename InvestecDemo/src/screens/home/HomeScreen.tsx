@@ -8,9 +8,13 @@ import {strings, route, types} from '../../res';
 import SlideButton from '../../components/SlideButton';
 // Style
 import styles from './home.style';
+// Native Module
+import {NativeModules} from 'react-native';
 
 const HomeScreen = (props: types.HomeScreen) => {
   const {navigation, greeting} = props;
+  const {DeviceModule} = NativeModules;
+  const isEmulator = DeviceModule.isEmulator();
   return (
     <View style={styles.main}>
       <View style={styles.container}>
@@ -20,6 +24,9 @@ const HomeScreen = (props: types.HomeScreen) => {
       </View>
       <View style={styles.bottomContainer}>
         <View style={styles.container}>
+          {isEmulator && (
+            <Text style={styles.yellowText}>{strings.appOnSimulator}</Text>
+          )}
           <Text style={styles.yellowText}>{strings.fourVariations}</Text>
           <TouchableOpacity
             style={styles.button1}

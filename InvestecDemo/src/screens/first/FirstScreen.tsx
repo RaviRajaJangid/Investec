@@ -8,16 +8,13 @@ import prepareGreet from '../../redux/action/prepareGreet';
 import {strings, route, types} from '../../res';
 // Styles
 import styles from './first.style';
-// Native Module
-import {NativeModules} from 'react-native';
+
 function FirstScreen(props: types.FirstScreen) {
-  const {DeviceModule} = NativeModules;
   const [name, setName] = useState(''); // we can replace with redux state if we need synchronus update
   const {navigation, greeting, prepareGreeting} = props;
   useEffect(() => {
     setName(greeting?.data?.name);
   }, [greeting]);
-  console.log(greeting);
   return (
     <View style={styles.main}>
       <View style={styles.container}>
@@ -42,9 +39,6 @@ function FirstScreen(props: types.FirstScreen) {
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
-            if (DeviceModule.isEmulator()) {
-              Alert.alert(strings.appName, strings.appOnSimulator);
-            }
             prepareGreeting(name);
           }}>
           <Text style={styles.title}>{strings.save}</Text>
