@@ -5,7 +5,7 @@ const prepareGreet = (name: string = '') => {
     return {type: PREPARE_GREET_ERROR, payload: strings.emptyUserNameError};
   }
   const greet = strings.welcomeGreet.replace('{name}', name);
-  return {type: PREPARE_GREET, payload: greet};
+  return {type: PREPARE_GREET, payload: {message: greet, name}};
 };
 
 export default prepareGreet;

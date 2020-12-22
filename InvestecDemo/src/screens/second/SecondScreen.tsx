@@ -1,21 +1,18 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
-// redux stuff
+// Redux stuff
 import {connect} from 'react-redux';
-
-const SecondScreen = (props: {
-  navigation: any;
-  greeting: {message: String};
-}) => {
+// Resource
+import {types} from '../../res';
+const SecondScreen = (props: types.SecondScreen) => {
   const {greeting} = props;
   return (
     <View style={styles.container}>
       <View style={styles.container}>
-        {greeting?.message && (
-          <Text style={styles.welcomeTitle}>{greeting.message}</Text>
+        {greeting?.data?.message && (
+          <Text style={styles.welcomeTitle}>{greeting.data.message}</Text>
         )}
       </View>
-      <Text>{'SecondScreen'}</Text>
     </View>
   );
 };
@@ -33,7 +30,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state: {greeting: any}) => {
+const mapStateToProps = (state: types.State) => {
   return {
     greeting: state.greeting,
   };

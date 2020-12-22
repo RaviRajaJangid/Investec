@@ -1,21 +1,21 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Alert} from 'react-native';
-// redux stuff
+// Redux stuff
 import {connect} from 'react-redux';
-// resource
-import {strings, route} from '../../res';
+// Resource
+import {strings, route, types} from '../../res';
+// Component
 import SlideButton from '../../components/SlideButton';
-
-// style
+// Style
 import styles from './home.style';
-// is it
-const HomeScreen = (props: {navigation: any; greeting: {message: String}}) => {
+
+const HomeScreen = (props: types.HomeScreen) => {
   const {navigation, greeting} = props;
   return (
     <View style={styles.main}>
       <View style={styles.container}>
-        {greeting?.message && (
-          <Text style={styles.welcomeTitle}>{greeting.message}</Text>
+        {greeting?.data?.message && (
+          <Text style={styles.welcomeTitle}>{greeting?.data?.message}</Text>
         )}
       </View>
       <View style={styles.bottomContainer}>
@@ -58,7 +58,7 @@ const HomeScreen = (props: {navigation: any; greeting: {message: String}}) => {
   );
 };
 
-const mapStateToProps = (state: {greeting: any}) => {
+const mapStateToProps = (state: types.State) => {
   return {
     greeting: state.greeting,
   };

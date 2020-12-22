@@ -1,6 +1,6 @@
 import {PREPARE_GREET, PREPARE_GREET_ERROR} from '../actionType';
 const initialState = {
-  message: null,
+  data: null,
   error: null,
 };
 interface Action {
@@ -13,7 +13,7 @@ const prepareGreetReducer = (state = initialState, action: Action) => {
     case PREPARE_GREET:
       return {
         ...initialState,
-        message: action.payload,
+        data: action.payload,
       };
     case PREPARE_GREET_ERROR:
       return {

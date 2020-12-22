@@ -3,7 +3,7 @@ const strings = {
   welcomeGreet: 'Hi, {name} \n Welcome to Investec!!',
   pressMe: 'Press me',
   slideMe: 'Slide me to continue',
-  slideToStop: 'Slide back to stop',
+  slideToStop: 'Slide back to close',
   fourVariations: '4 variations of buttons',
   enterName: 'Enter your name',
   save: 'Save',
